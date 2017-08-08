@@ -1,16 +1,11 @@
 function firstDuplicate(a) {
-    let lowIndex = [],
-        currArr,
-        i;
+    let mySet = new Set();
 
-    for (i = 0; i < a.length - 1; i++) {
-        if (i >= lowIndex[0]) {
-            return a[lowIndex[0]];
+    for (let i of a) {
+        if (mySet.has(i)) {
+            return i;
         }
-        currArr = a.slice(i + 1, lowIndex[0])
-        if (currArr.includes(a[i])) {
-            lowIndex[0] = currArr.indexOf(a[i]) + i + 1;
-        }
+        mySet.add(i)
     }
-    return lowIndex.length ? a[lowIndex[0]] : -1;
+    return -1;
 }
