@@ -9,5 +9,9 @@ def stat(strg)
 
   median = len % 2 == 1 ? times[len / 2] : ((times[len / 2 - 1] + times[len / 2]) / 2)
 
-  "Range: #{Time.at(times.max - times.min).utc.strftime("%H|%M|%S")} Average: #{Time.at(times.inject(:+) / strg.length).utc.strftime("%H|%M|%S")} Median: #{Time.at(median).utc.strftime("%H|%M|%S")}"
+  "Range: #{format_time(times.max - times.min)} Average: #{format_time(times.inject(:+) / len)} Median: #{format_time(median)}"
+end
+
+def format_time(time)
+  Time.at(time).utc.strftime("%H|%M|%S")
 end
