@@ -1,5 +1,5 @@
 def almostIncreasingSequence(seq)
-    i = 0
+    i = 0 
     c = 0
 
     while i < seq.length - 1
